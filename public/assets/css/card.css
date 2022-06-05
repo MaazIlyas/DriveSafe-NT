@@ -1,0 +1,136 @@
+.card {
+    border: none;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 1rem #c1c0c1;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card-body h4 {
+    color: white;
+}
+
+.card-title {
+    background-color: #414042;
+    padding: 0.8rem 1rem;
+    margin: 0;
+}
+
+.card-title a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal !important;
+}
+
+.card-title:hover {
+    background-color: #bb2026;
+    transition: 0.2s;
+}
+
+.card-text {
+    padding: 0.8rem 1.2rem;
+}
+
+.card--link {
+    min-height: 200px;
+    border-bottom: 0.5rem solid #bb2026;
+}
+
+
+/* TO be used */
+
+
+/*.card--class .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+}
+
+.card--class .card-header span:first-child {
+    font-weight: bold;
+}
+
+.card--class .card-header span:last-child {
+    color: white;
+    background-color: #bb2026;
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+}
+
+.card--class .card-title {
+    color: #bb2026;
+    background-color: white;
+}
+
+.card--class .card-title:hover {
+    background-color: white;
+}
+
+.card--class .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+}
+
+.card--class .card-footer span {
+    font-size: 0.8rem;
+}
+
+.card--class .card-footer span i {
+    margin-right: 0.25rem;
+}
+
+.card--community .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+}
+
+.card--community .card-header span:first-child {
+    font-weight: bold;
+}
+
+.card--community .card-header span:last-child {
+    color: white;
+    background-color: #bb2026;
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+}
+
+.card--community .card-body {
+    padding: 0.8rem 1rem;
+}
+
+.card--community .card-body span {
+    font-size: 0.8rem;
+}
+
+.card--community .card-body span i {
+    margin-right: 0.25rem;
+}
+
+.card--community .card-title {
+    color: #bb2026;
+    background-color: white;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.card--community .card-title:hover {
+    background-color: white;
+}
+
+.card--community .card-footer {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    border: none;
+}*/

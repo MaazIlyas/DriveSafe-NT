@@ -1,0 +1,38 @@
+.banner {
+    background: url(../images/profile.png);
+    padding: 6rem 0;
+}
+
+.banner__content {
+    color: white;
+}
+
+.banner__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3rem;
+}
+
+.banner__tiles a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    background-color: white;
+    padding: 2rem 0.5rem;
+    margin: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.banner__tiles a:hover {
+    color: #bb2026;
+    margin: 0;
+    transition: 0.2s;
+}
+
+.breadcrumb-item.active {
+    color: white;
+}

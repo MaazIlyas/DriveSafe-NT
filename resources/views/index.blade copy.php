@@ -21,17 +21,14 @@
                 <div class="col filter-options manual automatic casuarina dawrin">
                     <div class="card ">
                         <div class="card-body">
-                            <h4 class="card-title">
-                                {{$instructor->first_name}}  {{$instructor->last_name}} 
+                            <h4 class="card-title" style="color:grey;">
+                                Instructor {{$instructor->id}}
                             </h4>
                             <hr>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><span>ID: {{$instructor->id}}</span></li>
+                                <li class="list-group-item"><span>Name: {{$instructor->first_name}}  {{$instructor->last_name}}</span></li>
                                 <li class="list-group-item">Experience: {{$instructor->exp_in_years}} years</li>
                                 <li class="list-group-item">Contact Number: {{$instructor->contact_num}}</li>
-                                <li class="list-group-item">License Number: {{$instructor->license_no}}</li>
-                                <li class="list-group-item">Car Type: {{$instructor->car_type}}</li>
-                                <li class="list-group-item">Language: {{$instructor->language}}</li>
                             </ul>
                         </div>
                         

@@ -10,14 +10,8 @@
             <section class="profile">
                 <div class="container">
                     <div class="mb-5">
-                        <h2>Description</h2>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, quasi nulla ab porro placeat molestiae atque corporis, autem quos non, assumenda magni eaque quisquam ad id! Vitae est magni impedit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis assumenda consequatur dolore non animi blanditiis hic magnam, eligendi reiciendis, praesentium quasi at veritatis. Voluptates exercitationem provident, praesentium repudiandae sapiente incidunt? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora velit nisi hic voluptate dicta tempore esse, ratione quasi iusto qui laboriosam facere dignissimos eaque accusamus aliquam dolore assumenda minima maxime!
-                        </p>
+                        <h2>{{$instructor->first_name}}  {{$instructor->last_name}}</h2>
                     </div>
-
-                    <h3>{{$instructor->first_name}}  {{$instructor->last_name}}</h3>
-
                     <hr>
 
                     <div class="row mb-3">
