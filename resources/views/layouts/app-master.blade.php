@@ -36,14 +36,18 @@
     <link href="{!! URL::asset('assets/css/footer.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/card.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/banner.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset('assets/css/pagination.css') !!}" rel="stylesheet">
   </head>
   <body>
       
       @include('layouts.partials.navbar')
 
       @include('layouts.partials.banner')
-      <main class="container">
+      <main>
+        <div class="container">
           @yield('content')
+        </div>
+          
       </main>
 
       <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>

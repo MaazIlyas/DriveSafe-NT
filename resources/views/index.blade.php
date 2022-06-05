@@ -18,7 +18,7 @@
         <div class="cards row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3 mb-5 d-flex" id="card-lists">
             
             @foreach($instructors as $instructor)
-                <div class="col filter-options manual automatic casuarina dawrin">
+                <div class="col">
                     <div class="card ">
                         <div class="card-body">
                             <h4 class="card-title">
@@ -43,8 +43,11 @@
                 </div>
             @endforeach
         </div>
-
         <br/>
+        <div>
+            {{$instructors->links()}}
+        </div>
+
     @endif
 
 
