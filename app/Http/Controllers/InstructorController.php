@@ -12,12 +12,6 @@ class InstructorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    //public function index()
-    //{
-    //    $instructors = Instructor::all();
-    //    return view('index', compact('instructors'));
-    //}
-
     public function index()
     {
         $instructors = Instructor::paginate(4);
