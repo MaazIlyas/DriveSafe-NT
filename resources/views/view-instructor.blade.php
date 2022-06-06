@@ -63,7 +63,6 @@
 
                     <hr>
 
-                    @auth
                     <section class="review mb-5">
                         <form method="post" action="{{ route('reviews.store') }}">
             
@@ -95,12 +94,62 @@
                                 <h3>Your Comment</h3>
                                 <div class="review__comment">
                                     <textarea class="form-control" name="review" id="reviewComment" placeholder="What is your feedback?"></textarea>
+                                    @guest
+                                    <span>Please login to submit your review.</span>
+                                    @endguest
+                                    @auth
                                     <button type="submit" class="btn btn-success">Submit</button>
+                                    @endauth
                                 </div>
                             </div>
                         </form>
                     </section>
-                    @endauth
+                    <hr>
+
+
+                    <section class="review mb-5">
+                        <div>
+                            <div class="add_new-rating">
+                                <h3>Ratings</h3>
+                                <div class="profile__overall-rating"> 
+                                    <ul>
+                                    @for ($i = 1; $i <= $avg_rating; $i++)
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                    @endfor
+                                    @for ($i = 1; $i <= (5 - $avg_rating); $i++)
+                                        <li>
+                                            <i class="far fa-star"></i>
+                                        </li>
+                                    @endfor
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            @foreach($reviews as $review)
+                                <div class="all_rating_list">
+                                    <span>{{ date('Y-m-d H:i:s', strtotime($review->updated_at)) }}</span> 
+                                    <ul>
+                                    @for ($i = 1; $i <= $review->rating; $i++)
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                    @endfor
+                                    @for ($i = 1; $i <= (5 - $review->rating); $i++)
+                                        <li>
+                                            <i class="far fa-star"></i>
+                                        </li>
+                                    @endfor
+                                    </ul>
+                                    <span>{{$review->review}}</span>
+                                    <hr>
+                                </div>
+                            @endforeach
+                        </div>
+                    </section>
                 </div>
             </section>
 

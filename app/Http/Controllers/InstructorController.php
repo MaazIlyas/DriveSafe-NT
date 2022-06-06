@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Instructor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InstructorController extends Controller
 {
@@ -15,7 +16,22 @@ class InstructorController extends Controller
     public function index()
     {
         $instructors = Instructor::paginate(4);
-        return view('index', ['instructors' => $instructors]);
+        return view('index', ['instructors' => $instructors, 'search_string' => '']);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $search_string = data_get($request, 'searched', '');
+        $instructors = Instructor::where(function($query) use($search_string){
+            $query->where(DB::raw("CONCAT(first_name, last_name)"), 'like', '%' . str_replace(" ", "", $search_string) . '%');
+        })->paginate(4);
+        
+        return view('index', ['instructors' => $instructors, 'search_string' => $search_string]);
     }
 
     /**
@@ -64,15 +80,13 @@ class InstructorController extends Controller
                     $current_rating = (int)data_get($review, 'rating', 0);
                     if ($current_rating > 0) {
                         $avg_rating = ($avg_rating + $current_rating);
-                        if ($avg_rating != $current_rating) {
-                            $avg_rating = (float)($avg_rating / 2);
-                        }
                     }
                 }
-                $avg_rating = round($avg_rating);
+                $avg_rating = round(($avg_rating/count($reviews)));
             }
         }
-        return view('view-instructor', compact('instructor', 'avg_rating'));
+        // dd($avg_rating);
+        return view('view-instructor', compact('instructor', 'avg_rating', 'reviews'));
     }
 
     /**

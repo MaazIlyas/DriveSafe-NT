@@ -43,13 +43,18 @@ class ReviewController extends Controller
         $userID = auth()->user()->id;
         if (!empty($userID)) {
 
-            // $review_exists = Review::where('user_id', $userID)->first();
-            $review = new Review;
-            $review->user_ID = $userID;
-            $review->rating = $storeData['rating'];
-            $review->review = $storeData['review'];
-            $review->instructor_id = $storeData['instructor_id'];
-            $review->save();
+            $review_exists = Review::where(['user_id', $userID, 'instructor_id' => $storeData['instructor_id']])->first();
+            if(empty($review_exists)) {
+                $review = new Review;
+                $review->user_ID = $userID;
+                $review->rating = $storeData['rating'];
+                $review->review = $storeData['review'];
+                $review->instructor_id = $storeData['instructor_id'];
+                $review->save();
+            } else {
+                $review_exists->update(['rating' => $storeData['rating'], 'review' => $storeData['review']]);
+            }
+            
             return redirect()->back()->with('completed', 'Review has been saved!');
         }
     }

@@ -11,7 +11,7 @@
                         <div class="card card--link">
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="#" class="stretched-link">Classes</a>
+                                    <span class="stretched-link">Classes</span>
                                 </h4>
                                 <p class="card-text">
                                     Go here to find out when and where classes are avaiable.
@@ -23,7 +23,7 @@
                         <div class="card card--link">
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="#" class="stretched-link">Instructors</a>
+                                    <a href="{{ route('instructors.index') }}" class="stretched-link">Instructors</a>
                                 </h4>
                                 <p class="card-text">
                                     Go here to see our partnered driving schools and their instructors.
