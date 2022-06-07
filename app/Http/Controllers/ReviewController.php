@@ -44,7 +44,8 @@ class ReviewController extends Controller
         if (!empty($userID)) {
 
             $message = 'Review has been submitted!';
-            $review_exists = Review::where(['user_id', $userID, 'instructor_id' => $storeData['instructor_id']])->first();
+            $review_exists = Review::where(['user_id' => $userID, 'instructor_id' => $storeData['instructor_id']])->first();
+            
             if(empty($review_exists)) {
                 $review = new Review;
                 $review->user_ID = $userID;
