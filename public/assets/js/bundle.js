@@ -4,6 +4,20 @@
  * @popperjs/core v2.11.5 - MIT License
  */
 
+ $("#instructor-search").click(function() {
+   current_url = window.location.href;
+   if (current_url.includes("/search")) {
+    final_url = current_url.replace("/search", "/list");
+    window.location.href = final_url;
+   }
+});
+
+
+
+setTimeout(function () {
+        $(".alert-hide-class").hide();
+    }, 2000);
+
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });

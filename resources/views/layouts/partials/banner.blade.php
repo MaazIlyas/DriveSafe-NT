@@ -10,10 +10,10 @@
                     <a style="text-decoration:none;" href="{{ route('learning.index') }}">Learning</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a style="text-decoration:none;" href="">{{str_replace("/", " / ", ucfirst(Request::path()))}}</a>
+                    <a style="text-decoration:none;" href="{{ route('instructors.index') }}">Instructors</a>
                 </li>
             </ol>
-            <h1>{{ucfirst(Request::path())}}</h1>
+            <h1>Instructors</h1>
             @else
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">

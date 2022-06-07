@@ -55,12 +55,15 @@ class InstructorController extends Controller
         $storeData = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'exp_in_years' => 'numeric',
-            'license_no' => 'string|max:255',
-            'contact_num' => 'string|max:255'
+            'exp_in_years' => 'nullable|numeric',
+            'license_no' => 'nullable|string|max:255',
+            'contact_num' => 'nullable|string|max:255',
+            'car_type' => 'nullable|string|max:64',
+            'language' => 'nullable|string|max:128',
+            'bio' => 'nullable|string|max:512'
         ]);
         $instructor = Instructor::create($storeData);
-        return redirect('/instructors')->with('completed', 'Instructor has been saved!');
+        return redirect(route('instructors.index'))->with('success', 'Instructor has been added!');
     }
 
     /**
@@ -85,7 +88,7 @@ class InstructorController extends Controller
                 $avg_rating = round(($avg_rating/count($reviews)));
             }
         }
-        // dd($avg_rating);
+        
         return view('view-instructor', compact('instructor', 'avg_rating', 'reviews'));
     }
 
@@ -111,13 +114,18 @@ class InstructorController extends Controller
     public function update(Request $request, $id)
     {
         $updateData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|max:255',
-            'phone' => 'required|numeric',
-            'password' => 'required|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'exp_in_years' => 'nullable|numeric',
+            'license_no' => 'nullable|string|max:255',
+            'contact_num' => 'nullable|string|max:255',
+            'car_type' => 'nullable|string|max:64',
+            'language' => 'nullable|string|max:128',
+            'bio' => 'nullable|string|max:512'
         ]);
+        
         Instructor::whereId($id)->update($updateData);
-        return redirect('/instructors')->with('completed', 'Instructor has been updated');
+        return redirect(route('instructors.index'))->with('success', 'Instructor has been updated');
     }
 
     /**
@@ -129,7 +137,8 @@ class InstructorController extends Controller
     public function destroy($id)
     {
         $instructor = Instructor::findOrFail($id);
+        $instructor->ReviewData()->delete();
         $instructor->delete();
-        return redirect('/instructors')->with('completed', 'Instructor has been deleted');
+        return redirect(route('instructors.index'))->with('success', 'Instructor has been deleted');
     }
 }

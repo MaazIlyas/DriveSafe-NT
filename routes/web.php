@@ -26,7 +26,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Home Routes
      */
     Route::get('/', 'LearningController@index')->name('learning.index');
-    Route::get('/instructors', 'InstructorController@index')->name('instructors.index');
+    Route::get('/instructors/list', 'InstructorController@index')->name('instructors.index');
     Route::post('/instructors/search', 'InstructorController@search')->name('instructors.search');
     Route::get('/instructors/{instructor}', 'InstructorController@show')->name('instructors.show');
 
@@ -47,10 +47,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     Route::group(['middleware' => ['auth']], function() {
         
-        Route::post('/instructors', 'InstructorController@store')->name('instructors.store');
-        Route::get('/instructors/create', 'InstructorController@create')->name('instructors.create');
-        // Route::put('/instructors/{instructor}', 'InstructorController@update')->name('instructors.update');
-        Route::delete('/instructors/{instructor}', 'InstructorController@destroy')->name('instructors.destroy');
+        Route::post('/instructors/store', 'InstructorController@store')->name('instructors.store');
+        Route::get('/instructors/new/create', 'InstructorController@create')->name('instructors.create');
+        Route::any('/instructors/{instructor}/update', 'InstructorController@update')->name('instructors.update');
+        Route::any('/instructors/{instructor}/destroy', 'InstructorController@destroy')->name('instructors.destroy');
         Route::get('/instructors/{instructor}/edit', 'InstructorController@edit')->name('instructors.edit');
 
 

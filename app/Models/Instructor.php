@@ -19,7 +19,10 @@ class Instructor extends Model
         'last_name',
         'license_no',
         'exp_in_years',
-        'contact_num'
+        'contact_num',
+        'car_type',
+        'language',
+        'bio'
     ];
 
     public function ReviewData()

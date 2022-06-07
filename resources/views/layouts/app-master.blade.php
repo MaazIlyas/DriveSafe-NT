@@ -8,13 +8,11 @@
     <meta name="generator" content="Hugo 0.87.0">
     <title>Fixed top navbar example · Bootstrap v5.1</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -45,6 +43,8 @@
       @include('layouts.partials.navbar')
 
       @include('layouts.partials.banner')
+
+      @include('flash-message')
       <main>
         <div class="container">
           @yield('content')
@@ -52,10 +52,9 @@
           
       </main>
 
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
-
       <script src="https://kit.fontawesome.com/bc4e126ee3.js" crossorigin="anonymous"></script>
-
       <script src="{!! url('assets/js/bundle.js') !!}" type="text/javascript"></script>
       
       <footer class="footer" role="contentinfo">

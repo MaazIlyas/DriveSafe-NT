@@ -43,6 +43,7 @@ class ReviewController extends Controller
         $userID = auth()->user()->id;
         if (!empty($userID)) {
 
+            $message = 'Review has been submitted!';
             $review_exists = Review::where(['user_id', $userID, 'instructor_id' => $storeData['instructor_id']])->first();
             if(empty($review_exists)) {
                 $review = new Review;
@@ -53,9 +54,10 @@ class ReviewController extends Controller
                 $review->save();
             } else {
                 $review_exists->update(['rating' => $storeData['rating'], 'review' => $storeData['review']]);
+                $message = 'Review has been updated!';
             }
             
-            return redirect()->back()->with('completed', 'Review has been saved!');
+            return redirect()->back()->with('success', $message);
         }
     }
 

@@ -9,9 +9,12 @@
         <h1 style="color:black;">No instructors to display</h1>
     @else
         <div class="row row-cols-lg-4 flex-row-reverse pb-4">
+        @if(auth()->user() && auth()->user()->role == 'admin')
+            <a href="{{ route('instructors.create') }}" class="btn btn-sm btn-secondary">Add Instructor</a>
+        @endif
             <form class="d-flex" method=POST action="{{ route('instructors.search') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                <input class="form-control me-2" type="search" placeholder="Search By Name" aria-label="Search" name="searched" value="{{$search_string}}">
+                <input class="form-control me-2" id="instructor-search" type="search" placeholder="Search By Name" aria-label="Search" name="searched" value="{{$search_string}}">
                 <button class="btn btn-outline-secondary" type="submit">Search</button>
             </form>
         </div>
@@ -35,7 +38,11 @@
                         </div>
                         
                         <div class="card-footer">
-                            <a href="{{ url('/instructors/'.$instructor->id) }}" class="btn btn-sm btn-secondary">View Instructor</a>
+                            <a href="{{ url('/instructors/'.$instructor->id) }}" class="btn btn-sm btn-secondary">View</a>
+                            @if(auth()->user() && auth()->user()->role == 'admin')
+                                <a href="{{ url('/instructors/'.$instructor->id.'/edit') }}" class="btn btn-sm btn-secondary">Edit</a>
+                                <a href="{{ route('instructors.destroy', ['instructor'=> $instructor->id]) }}" class="btn btn-sm btn-secondary">Delete</a>
+                            @endif
                         </div>
                         
                     </div>
