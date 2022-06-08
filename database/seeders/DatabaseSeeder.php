@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Instructor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +21,40 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $instructor_array = [
+            [
+            'first_name' => 'abc',
+            'first_name' => 'abc',
+            'first_name' => 'abc',
+            'first_name' => 'abc',
+            'first_name' => 'abc',
+            'first_name' => 'abc',
+            'first_name' => 'abc',
+            'first_name' => 'abc'
+            ],
+            [
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc'
+            ],
+            [
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc',
+                'first_name' => 'abc'
+            ]
+        ];
+
+        Instructor::insert($instructor_array);
     }
 }

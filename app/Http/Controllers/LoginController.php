@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -28,17 +30,28 @@ class LoginController extends Controller
     public function login(LoginRequest $request)
     {
         $credentials = $request->getCredentials();
+        $user_found = User::where(['email' => $credentials['email']])->first();
+        // data_get function contains 3 params, 1st one is object or array, 
+        // 2nd one is key which we want to get and third one is default value if data not exist.
+        if(!empty($user_found)) {
+            $salt = data_get($user_found, 'salt', '');
+            $password = $credentials['password'] . $salt;
 
-        if(!Auth::validate($credentials)):
-            return redirect()->to('login')
-                ->withErrors(trans('auth.failed'));
-        endif;
+            if (!Hash::check($password, $user_found->password)) {
+                return redirect()->to('login')->withErrors(trans('auth.failed'));
+            }
+        }
 
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
+        // if(!Auth::validate($credentials)):
+        //     return redirect()->to('login')
+        //         ->withErrors(trans('auth.failed'));
+        // endif;
 
-        Auth::login($user);
+        // $user = Auth::getProvider()->retrieveByCredentials($credentials);
+        
+        Auth::login($user_found);
 
-        return $this->authenticated($request, $user);
+        return $this->authenticated($request, $user_found);
     }
 
     /**

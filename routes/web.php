@@ -30,6 +30,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::post('/instructors/search', 'InstructorController@search')->name('instructors.search');
     Route::get('/instructors/{instructor}', 'InstructorController@show')->name('instructors.show');
 
+    Route::get('/classes/list', 'LearningController@classes')->name('learning.classes');
+
     Route::group(['middleware' => ['guest']], function() {
         /**
          * Register Routes

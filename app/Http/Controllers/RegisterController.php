@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -31,6 +32,9 @@ class RegisterController extends Controller
             if(!empty($data)) {
                 $data['role'] = 'student';
                 $data['name'] = data_get($data, 'username');
+                $data['salt'] = Str::random(16);
+                $password = $data['password'] . $data['salt'];
+                $data['password'] = bcrypt($password);
                 unset($data['username']);
                 
                 $user = User::create($data);

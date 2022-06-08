@@ -16,4 +16,14 @@ class LearningController extends Controller
     {
         return view('learning');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function classes()
+    {
+        return view('classes');
+    }
 }
