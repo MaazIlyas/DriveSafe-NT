@@ -30,6 +30,16 @@
                 <span class="text-danger text-left">{{ $errors->first('password') }}</span>
             @endif
         </div>
+        <div class="password-criteria">
+            The password contains characters from at least three of the following five categories:
+            <ol>
+                <li>English uppercase characters (A – Z)</li>
+                <li>English lowercase characters (a – z)</li>
+                <li>Base 10 digits (0 – 9)</li>
+                <li>Non-alphanumeric (For example: !, $, #, or %)</li>
+                <li>Unicode characters</li>
+            </ol>
+        </div>
 
         <div class="form-group form-floating mb-3">
             <input type="password" class="form-control" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder="Confirm Password" required="required">
@@ -40,5 +50,7 @@
         </div>
 
         <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+
+        Already have an account? <a href="{{ route('login.perform') }}">Login</a>
     </form>
 @endsection

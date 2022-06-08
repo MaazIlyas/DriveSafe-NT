@@ -27,5 +27,6 @@
         </div>
 
         <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+        <span>Don't have an account? <a href="{{ route('register.perform') }}">Sign-up</a></span>
     </form>
 @endsection
