@@ -18,7 +18,7 @@
                         <div class="col-6 col-lg-9">
                             <div class="row row-cols-1 row-cols-lg-3 gy-3">
                                 <div class="col">
-                                    <img src="{!! url('assets/images/profile.png') !!}" style="border: solid 1px black;" alt="profile picture">
+                                    <img src="{!! url('assets/images/profile.png') !!}" alt="profile picture">
                                 </div>
                                 <div class="col">
                                     <h4>Details</h4>

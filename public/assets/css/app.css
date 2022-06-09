@@ -231,3 +231,20 @@ ul.thumb li img {
     height: 80px;
     border: 1px solid grey;
 }
+
+/* Close */
+
+.close {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.5rem;
+    color: #bb2026;
+    background-color: white;
+    border: none;
+    border-radius: 0.5rem;
+    transition: 0.2s;
+}
+
+.close:hover {
+    background-color: #212529;
+}

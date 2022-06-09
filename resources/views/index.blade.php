@@ -8,9 +8,9 @@
     @if (empty($instructors))
         <h1 style="color:black;">No instructors to display</h1>
     @else
-        <div class="row row-cols-lg-4 flex-row-reverse pb-4">
+        <div class="row row-cols-lg-4 flex-row-reverse pb-4 g-3">
         @if(auth()->user() && auth()->user()->role == 'admin')
-            <a href="{{ route('instructors.create') }}" class="btn btn-sm btn-secondary">Add Instructor</a>
+            <a href="{{ route('instructors.create') }}" class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center">Add Instructor</a>
         @endif
             <form class="d-flex" method=POST action="{{ route('instructors.search') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
