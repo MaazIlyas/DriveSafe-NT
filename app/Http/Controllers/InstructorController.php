@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Instructor;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,8 +16,13 @@ class InstructorController extends Controller
      */
     public function index()
     {
-        $instructors = Instructor::paginate(4);
-        return view('index', ['instructors' => $instructors, 'search_string' => '']);
+        if (Schema::hasTable('Instructors'))
+        {
+            $instructors = Instructor::paginate(4);
+            return view('index', ['instructors' => $instructors, 'search_string' => '']);
+        }
+        
+        return view('index', [ 'search_string' => '']);
     }
 
     /**
@@ -76,6 +82,7 @@ class InstructorController extends Controller
     {
         $instructor = Instructor::with('ReviewData')->find($id);
         $avg_rating = 0;
+        $reviews = [];
         if(!empty($instructor)) {
             $reviews = data_get($instructor, 'ReviewData', []);
             if (!empty($reviews)) {
@@ -85,9 +92,13 @@ class InstructorController extends Controller
                         $avg_rating = ($avg_rating + $current_rating);
                     }
                 }
-                if (count($reviews) > 0) {
-                    $avg_rating = round(($avg_rating/count($reviews)));
+                if($reviews == [])
+                {
+                    if (count($reviews) > 0) {
+                        $avg_rating = round(($avg_rating/count($reviews)));
+                    }
                 }
+                
             }
         }
         

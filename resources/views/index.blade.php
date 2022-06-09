@@ -1,11 +1,15 @@
 <!-- @extends('layout')
 @section('content') -->
+
+
+<!-- Instructors page -->
+
 @extends('layouts.app-master')
 
 @section('content')
 <div class="bg-light p-5 rounded">
 
-    @if (empty($instructor))
+    @if (empty($instructors))
         <h2>There are no instructors to display.</h2>
         <br>
         @if(auth()->user() && auth()->user()->role == 'admin')
