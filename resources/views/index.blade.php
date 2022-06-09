@@ -5,7 +5,7 @@
 @section('content')
 <div class="bg-light p-5 rounded">
 
-    @if (empty($instructor))
+    @if (count($instructors) < 1)
         <h2>There are no instructors to display.</h2>
         <br>
         @if(auth()->user() && auth()->user()->role == 'admin')
