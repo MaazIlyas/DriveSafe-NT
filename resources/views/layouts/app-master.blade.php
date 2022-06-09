@@ -7,10 +7,7 @@
     <title>DriveSafe-NT</title>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap core CSS -->
-    <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <style>
       .bd-placeholder-img {
@@ -32,6 +29,7 @@
     <!-- Custom styles for this template -->
     <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/footer.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset('assets/css/main-nav.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/card.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/banner.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/pagination.css') !!}" rel="stylesheet">
@@ -51,9 +49,8 @@
       </main>
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
       <script src="https://kit.fontawesome.com/bc4e126ee3.js" crossorigin="anonymous"></script>
-      <script src="{!! url('assets/js/bundle.js') !!}" type="text/javascript"></script>
       
       <footer class="footer" role="contentinfo">
         @include('layouts.partials.footer')
