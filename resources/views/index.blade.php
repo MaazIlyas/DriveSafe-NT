@@ -27,7 +27,6 @@
                             <h4 class="card-title">
                                 {{$instructor->first_name}}  {{$instructor->last_name}} 
                             </h4>
-                            <hr>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Experience: {{$instructor->exp_in_years}} years</li>
                                 <li class="list-group-item">Contact Number: {{$instructor->contact_num}}</li>

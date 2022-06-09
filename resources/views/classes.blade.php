@@ -3,7 +3,9 @@
 @extends('layouts.app-master')
 
 @section('content')
-    <main class="content">
+    <h2>It looks like there's no content here yet...</h2>
+
+    <!-- <main class="content">
         <section class="mb-5">
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-2 gy-3">
@@ -34,5 +36,5 @@
                 </div>
             </div>
         </section>
-    </main>  
+    </main>   -->
 @endsection

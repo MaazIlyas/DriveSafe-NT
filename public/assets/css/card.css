@@ -14,7 +14,7 @@
 }
 
 .card-title {
-    background-color: #414042;
+    background-color: #212529;
     padding: 0.8rem 1rem;
     margin: 0;
 }
@@ -25,18 +25,13 @@
     font-weight: normal !important;
 }
 
-.card-title:hover {
-    background-color: #bb2026;
-    transition: 0.2s;
-}
-
 .card-text {
     padding: 0.8rem 1.2rem;
 }
 
 .card--link {
     min-height: 200px;
-    border-bottom: 0.5rem solid #bb2026;
+    border-bottom: 0.5rem solid #ffc720;
 }
 
 

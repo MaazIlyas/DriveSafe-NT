@@ -4,33 +4,33 @@
             @if(str_contains(Request::path(), "instructors"))
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <span>Home</span>
+                    <a href="#" class="inactive">Home</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a style="text-decoration:none;" href="{{ route('learning.index') }}">Learning</a>
+                    <a href="{{ route('learning.index') }}">Learning</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a style="text-decoration:none;" href="{{ route('instructors.index') }}">Instructors</a>
+                    <a href="{{ route('instructors.index') }}">Instructors</a>
                 </li>
             </ol>
             <h1>Instructors</h1>
             @elseif(str_contains(Request::path(), "classes"))
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <span>Home</span>
+                    <a href="#" class="inactive">Home</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a style="text-decoration:none;" href="{{ route('learning.index') }}">Learning</a>
+                    <a href="{{ route('learning.index') }}">Learning</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a style="text-decoration:none;" href="{{ route('learning.classes') }}">Classes</a>
+                    <a href="{{ route('learning.classes') }}">Classes</a>
                 </li>
             </ol>
             <h1>Classes</h1>
             @else
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <span>Home</span>
+                    <a href="#" class="inactive">Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <a href="{{ route('learning.index') }}">Learning</a>

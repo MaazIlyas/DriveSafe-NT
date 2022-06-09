@@ -4,9 +4,9 @@
 
 /* Not required for template or sticky footer method. */
 
-main>.container {
+/* main>.container {
     padding: 60px 15px 0;
-}
+} */
 
 .b-example-divider {
     height: 3rem;
@@ -76,6 +76,10 @@ main>.container {
 
 /* Profile css */
 
+.profile h2 {
+    color: #212529;
+}
+
 .profile ul {
     list-style: none;
     margin: 0;
@@ -101,7 +105,7 @@ main>.container {
 }
 
 .profile__overall-rating ul i.fas {
-    color: yellow;
+    color: #ffca2c;
 }
 
 .add_new-rating {
@@ -119,7 +123,7 @@ main>.container {
 }
 
 .add_new-rating ul i.fas {
-    color: yellow;
+    color: #ffca2c;
 }
 
 .all_rating_list {
@@ -137,7 +141,7 @@ main>.container {
 }
 
 .all_rating_list ul i.fas {
-    color: yellow;
+    color: #ffca2c;
 }
 
 

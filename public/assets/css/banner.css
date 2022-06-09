@@ -1,5 +1,6 @@
 .banner {
-    background: url(../images/profile.png);
+    background: #212529;
+    border-bottom: 6px dashed grey;
     padding: 6rem 0;
 }
 

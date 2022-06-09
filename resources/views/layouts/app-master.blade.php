@@ -25,7 +25,6 @@
       }
     </style>
 
-    
     <!-- Custom styles for this template -->
     <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/global.css') !!}" rel="stylesheet">
@@ -33,6 +32,7 @@
     <link href="{!! URL::asset('assets/css/main-nav.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/card.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/banner.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset('assets/css/breadcrumb.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/pagination.css') !!}" rel="stylesheet">
   </head>
   <body>
@@ -43,21 +43,22 @@
       @include('layouts.partials.banner')
 
       @include('flash-message')
+
       <main>
         <div class="container">
           @yield('content')
         </div>
-          
       </main>
-
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      <script src="https://kit.fontawesome.com/bc4e126ee3.js" crossorigin="anonymous"></script>
       
-      <footer class="footer" role="contentinfo">
+      <footer class="footer mt-5" role="contentinfo">
         @include('layouts.partials.footer')
       </footer>
 
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/bc4e126ee3.js" crossorigin="anonymous"></script>
+    <script src="{!! url('assets/js/bundle.js') !!}" type="text/javascript"></script>
   </body>
 </html>

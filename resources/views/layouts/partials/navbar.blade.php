@@ -1,6 +1,6 @@
 <header class="p-3 bg-dark text-white">
   <div class="container">
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-between" style="border-bottom: 1px solid grey;">
       <nav class="main-nav">
         <ul>
           <li>
