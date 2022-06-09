@@ -28,6 +28,7 @@
     
     <!-- Custom styles for this template -->
     <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset('assets/css/global.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/footer.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/main-nav.css') !!}" rel="stylesheet">
     <link href="{!! URL::asset('assets/css/card.css') !!}" rel="stylesheet">
@@ -35,7 +36,8 @@
     <link href="{!! URL::asset('assets/css/pagination.css') !!}" rel="stylesheet">
   </head>
   <body>
-      
+    <div id="wrapper">
+
       @include('layouts.partials.navbar')
 
       @include('layouts.partials.banner')
@@ -55,6 +57,7 @@
       <footer class="footer" role="contentinfo">
         @include('layouts.partials.footer')
       </footer>
-      </div>
-    </body>
+
+    </div>
+  </body>
 </html>
