@@ -6,7 +6,11 @@
 <div class="bg-light p-5 rounded">
 
     @if (empty($instructor))
-        <h2 style="color:black;">There are no instructors to display.</h2>
+        <h2>There are no instructors to display.</h2>
+        <br>
+        @if(auth()->user() && auth()->user()->role == 'admin')
+            <a href="{{ route('instructors.create') }}" class="btn btn-sm btn-secondary">Add Instructor</a>
+        @endif
     @else
         <div class="row row-cols-lg-4 flex-row-reverse pb-4 g-3">
         @if(auth()->user() && auth()->user()->role == 'admin')
