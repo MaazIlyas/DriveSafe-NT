@@ -147,11 +147,19 @@ class InstructorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $instructor = Instructor::findOrFail($id);
-        $instructor->ReviewData()->delete();
-        $instructor->delete();
-        return redirect(route('instructors.index'))->with('success', 'Instructor has been deleted');
+        print_r($request->instructor_delete_id);
+        $instructor = Instructor::findOrFail($request->instructor_delete_id);
+
+        if($instructor)
+        {
+            $instructor->ReviewData()->delete();
+            $instructor->delete();
+            return redirect(route('instructors.index'))->with('success', 'Instructor has been deleted');
+        }
+        else{
+            return redirect(route('instructors.index'))->with('message', 'Instructor has not been deleted');
+        }
     }
 }

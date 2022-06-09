@@ -1,6 +1,3 @@
-<!-- @extends('layout')
-@section('content') -->
-
 
 <!-- Instructors page -->
 
@@ -45,10 +42,37 @@
                         </div>
                         
                         <div class="card-footer">
-                            <a href="{{ url('/instructors/'.$instructor->id) }}" class="btn btn-sm btn-secondary">View</a>
+                            <a href="{{ url('/instructors/'.$instructor->id) }}" class="btn btn-sm btn-primary">View</a>
                             @if(auth()->user() && auth()->user()->role == 'admin')
                                 <a href="{{ url('/instructors/'.$instructor->id.'/edit') }}" class="btn btn-sm btn-secondary">Edit</a>
-                                <a href="{{ route('instructors.destroy', ['instructor'=> $instructor->id]) }}" class="btn btn-sm btn-secondary">Delete</a>
+                                <!--<a href="{{ route('instructors.destroy', ['instructor'=> $instructor->id]) }}" class="btn btn-sm btn-danger">Delete</a>-->
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-sm btn-danger deleteInstructorBtn" value="{{$instructor->id}}">
+                                    Delete
+                                </button>
+
+                                <!-- Modal -->
+                                <form action="{{ route('instructors.destroy') }}" method="POST">
+                                    @csrf
+                                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input type="hidden" name="instructor_delete_id" id="instructor_id">
+                                                Are you sure you want to delete the instructor ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             @endif
                         </div>
                         
