@@ -28,11 +28,11 @@
                                 {{$instructor->first_name}}  {{$instructor->last_name}} 
                             </h4>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Experience: {{$instructor->exp_in_years}} years</li>
-                                <li class="list-group-item">Contact Number: {{$instructor->contact_num}}</li>
-                                <li class="list-group-item">License Number: {{$instructor->license_no}}</li>
-                                <li class="list-group-item">Car Type: {{$instructor->car_type}}</li>
-                                <li class="list-group-item">Language: {{$instructor->language}}</li>
+                                <li class="list-group-item d-flex justify-content-between"><span class="fw-bold">Experience:</span> {{$instructor->exp_in_years}} years</li>
+                                <li class="list-group-item d-flex justify-content-between"><span class="fw-bold">Contact Number:</span> {{$instructor->contact_num}}</li>
+                                <li class="list-group-item d-flex justify-content-between"><span class="fw-bold">License Number:</span> {{$instructor->license_no}}</li>
+                                <li class="list-group-item d-flex justify-content-between"><span class="fw-bold">Car Type:</span> {{$instructor->car_type}}</li>
+                                <li class="list-group-item d-flex justify-content-between"><span class="fw-bold">Language:</span> {{$instructor->language}}</li>
                             </ul>
                         </div>
                         

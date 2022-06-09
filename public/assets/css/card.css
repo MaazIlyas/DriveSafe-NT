@@ -3,6 +3,7 @@
     border-radius: 0.2rem;
     box-shadow: 0 0 1rem #c1c0c1;
     overflow: hidden;
+    animation: fadeInCard 0.5s ease-in-out;
 }
 
 .card-body {
@@ -32,8 +33,20 @@
 .card--link {
     min-height: 200px;
     border-bottom: 0.5rem solid #ffc720;
+    animation: none;
 }
 
+@keyframes fadeInCard {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 /* TO be used */
 

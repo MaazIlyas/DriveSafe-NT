@@ -6,6 +6,10 @@
     position: relative;
 }
 
+.main-nav li {
+    background-color: #212529;
+}
+
 .main-nav a {
     color: white;
     text-decoration: none;
@@ -28,7 +32,6 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: #212529;
     display: none;
 }
 
@@ -42,6 +45,31 @@
     border-right: 1px solid grey;
 }
 
+.main-nav ul ul li:first-child {
+    animation: fadeInLink 0.5s ease-in;
+}
+
 .main-nav ul ul li:last-child {
     border-bottom: 1px solid grey;
+    animation: slideInLink 0.5s ease-in-out;
+}
+
+@keyframes fadeInLink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLink {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
