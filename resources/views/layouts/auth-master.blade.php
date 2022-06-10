@@ -35,7 +35,7 @@
     <main class="form-signin">
 
         @yield('content')
-        Accidently opened the page? <a href="{{ redirect()->getUrlGenerator()->previous() }}">Return</a>
+        
     </main>
     
 
