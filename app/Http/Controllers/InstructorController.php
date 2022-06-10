@@ -92,7 +92,7 @@ class InstructorController extends Controller
                         $avg_rating = ($avg_rating + $current_rating);
                     }
                 }
-                if($reviews == [])
+                if($reviews != [])
                 {
                     if (count($reviews) > 0) {
                         $avg_rating = round(($avg_rating/count($reviews)));

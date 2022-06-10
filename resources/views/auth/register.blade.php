@@ -31,10 +31,9 @@
             @endif
         </div>
         <div class="password-criteria">
-            The password contains characters from at least three of the following five categories:
+            The password contains characters from at least three of the following four categories:
             <ol>
-                <li>English uppercase characters (A – Z)</li>
-                <li>English lowercase characters (a – z)</li>
+                <li>English uppercase (A – Z) and/or lowercase (a-z) characters</li>
                 <li>Base 10 digits (0 – 9)</li>
                 <li>Non-alphanumeric (For example: !, $, #, or %)</li>
                 <li>Unicode characters</li>
