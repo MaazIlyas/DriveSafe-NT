@@ -52,8 +52,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/instructors/store', 'InstructorController@store')->name('instructors.store');
         Route::get('/instructors/new/create', 'InstructorController@create')->name('instructors.create');
         Route::any('/instructors/{instructor}/update', 'InstructorController@update')->name('instructors.update');
-        //Route::any('/instructors/{instructor}/destroy', 'InstructorController@destroy')->name('instructors.destroy');
-        Route::post('/instructors/destroy', 'InstructorController@destroy')->name('instructors.destroy');
+        Route::any('/instructors/{instructor}/destroy', 'InstructorController@destroy')->name('instructors.destroy');
         Route::get('/instructors/{instructor}/edit', 'InstructorController@edit')->name('instructors.edit');
 
 
