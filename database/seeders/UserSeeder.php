@@ -20,11 +20,11 @@ class UserSeeder extends Seeder
         //User table seeds
         $user_array = [
             [
-                'first_name' => 'Alex', 'last_name' => 'Phan', 'email' => 'AlexPhan@gmail.com', 'password' => '$2y$10$DPjgDOT87DDVGSyOpUUycuJJy1MXa/ZPCHV8vXD8sBZGLAGUcGgou', 
+                'name' => 'Alex Phan', 'email' => 'AlexPhan@gmail.com', 'password' => '$2y$10$DPjgDOT87DDVGSyOpUUycuJJy1MXa/ZPCHV8vXD8sBZGLAGUcGgou', 
                 'salt' => 'ZYDku9udNt3es1ro', 'role' => 'admin'
             ],
             [
-                'first_name' => 'Maaz', 'last_name' => 'Ilyas', 'email' => 'Maazilyas@gmail.com', 'password' => '$2y$10$DPjgDOT87DDVGSyOpUUycuJJy1MXa/ZPCHV8vXD8sBZGLAGUcGgou', 
+                'name' => 'Maaz Ilyas', 'email' => 'Maazilyas@gmail.com', 'password' => '$2y$10$DPjgDOT87DDVGSyOpUUycuJJy1MXa/ZPCHV8vXD8sBZGLAGUcGgou', 
                 'salt' => 'ZYDku9udNt3es1ro', 'role' => 'admin'
             ]
         ];
