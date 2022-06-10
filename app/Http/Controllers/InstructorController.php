@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Instructor;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,13 +15,8 @@ class InstructorController extends Controller
      */
     public function index()
     {
-        if (Schema::hasTable('Instructors'))
-        {
-            $instructors = Instructor::paginate(4);
-            return view('index', ['instructors' => $instructors, 'search_string' => '']);
-        }
-        
-        return view('index', [ 'search_string' => '']);
+        $instructors = Instructor::paginate(4);
+        return view('index', ['instructors' => $instructors, 'search_string' => '']);
     }
 
     /**
@@ -82,7 +76,6 @@ class InstructorController extends Controller
     {
         $instructor = Instructor::with('ReviewData')->find($id);
         $avg_rating = 0;
-        $reviews = [];
         if(!empty($instructor)) {
             $reviews = data_get($instructor, 'ReviewData', []);
             if (!empty($reviews)) {
@@ -92,13 +85,9 @@ class InstructorController extends Controller
                         $avg_rating = ($avg_rating + $current_rating);
                     }
                 }
-                if($reviews == [])
-                {
-                    if (count($reviews) > 0) {
-                        $avg_rating = round(($avg_rating/count($reviews)));
-                    }
+                if (count($reviews) > 0) {
+                    $avg_rating = round(($avg_rating/count($reviews)));
                 }
-                
             }
         }
         
@@ -147,19 +136,11 @@ class InstructorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        print_r($request->instructor_delete_id);
-        $instructor = Instructor::findOrFail($request->instructor_delete_id);
-
-        if($instructor)
-        {
-            $instructor->ReviewData()->delete();
-            $instructor->delete();
-            return redirect(route('instructors.index'))->with('success', 'Instructor has been deleted');
-        }
-        else{
-            return redirect(route('instructors.index'))->with('message', 'Instructor has not been deleted');
-        }
+        $instructor = Instructor::findOrFail($id);
+        $instructor->ReviewData()->delete();
+        $instructor->delete();
+        return redirect(route('instructors.index'))->with('success', 'Instructor has been deleted');
     }
 }
