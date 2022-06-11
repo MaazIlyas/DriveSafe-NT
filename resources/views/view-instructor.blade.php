@@ -1,3 +1,4 @@
+{{-- This page shows the details of the selected instructor --}}
 @extends('layouts.app-master')
 
 @section('content')

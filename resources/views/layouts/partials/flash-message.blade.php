@@ -1,3 +1,5 @@
+{{-- This is a partial that shows the message at the top --}}
+
 @if ($message = Session::get('success'))
 <div class="container">
 	<div class="alert alert-success alert-block alert-hide-class">

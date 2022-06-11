@@ -45,7 +45,7 @@
 
       @include('layouts.partials.banner')
 
-      @include('flash-message')
+      @include('layouts.partials.flash-message')
 
       <main>
         <div class="container">

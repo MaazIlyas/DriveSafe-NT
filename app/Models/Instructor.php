@@ -25,6 +25,7 @@ class Instructor extends Model
         'bio'
     ];
 
+    //Making relation one to many
     public function ReviewData()
     {
         return $this->hasMany('App\Models\Review','instructor_id');

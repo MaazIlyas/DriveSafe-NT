@@ -1,3 +1,4 @@
+<!--{{-- This blade Currently not in use --}}-->
 <!-- <!DOCTYPE html>
 <html>
    <head>

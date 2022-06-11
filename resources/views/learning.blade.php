@@ -1,5 +1,5 @@
-<!-- @extends('layout')
-@section('content') -->
+{{-- This page shows the two main pages of the websie. CUrrently being considered as the home page --}}
+
 @extends('layouts.app-master')
 
 @section('content')

@@ -1,5 +1,7 @@
-<!-- @extends('layout')
-@section('content') -->
+{{-- This blade is for editting the instructor --}}
+
+{{-- Note: A partial was not created for the fields as the fields are containing the value as well --}}
+
 @extends('layouts.app-master')
 
 @section('content')

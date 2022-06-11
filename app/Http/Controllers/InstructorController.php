@@ -26,7 +26,7 @@ class InstructorController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the searched resouece.
      *
      * @return \Illuminate\Http\Response
      */
@@ -41,7 +41,7 @@ class InstructorController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new instructor.
      *
      * @return \Illuminate\Http\Response
      */
@@ -51,7 +51,7 @@ class InstructorController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created instructor in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

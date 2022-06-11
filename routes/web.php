@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here is where we registered the web routes for our application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "web" middleware group.
 |
 */
 
@@ -30,8 +30,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::post('/instructors/search', 'InstructorController@search')->name('instructors.search');
     Route::get('/instructors/{instructor}', 'InstructorController@show')->name('instructors.show');
 
+    /**
+     * Classes Routes
+     * Currently not in use
+     */
     Route::get('/classes/list', 'LearningController@classes')->name('learning.classes');
 
+    #-------------------------|Guest routes|------------------------#
+    /**
+     * Guest auth roots (will not work when logged in)
+     */
     Route::group(['middleware' => ['guest']], function() {
         /**
          * Register Routes
@@ -46,7 +54,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/login', 'LoginController@login')->name('login.perform');
 
     });
+    #------------------------------------------------------------------#
 
+    #------------------------|for all auth types|----------------------#
     Route::group(['middleware' => ['auth']], function() {
         
         Route::post('/instructors/store', 'InstructorController@store')->name('instructors.store');
@@ -63,4 +73,5 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
+    #---------------------------------------------------------------------#
 });

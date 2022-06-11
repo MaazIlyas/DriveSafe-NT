@@ -21,6 +21,7 @@ class Review extends Model
         'user_id'
     ];
 
+    //Making relation each review belongs to a user
     public function UserData()
     {
         return $this->belongsTo('App\Models\User','user_id');

@@ -17,7 +17,7 @@ class ReviewSeeder extends Seeder
      */
     public function run()
     {
-        //User table seeds
+        //Review table seeds
         $review_array = [
             [
                 'rating' => '5', 'review' => 'Superb Instructor!', 'user_id' => 1, 'instructor_id' => 1, 

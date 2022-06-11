@@ -24,10 +24,18 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
+
+            //Should be in email format
             'email' => 'required|email:rfc,dns|unique:users,email',
-            'username' => 'required|unique:users,username',
+
+            //Max 20 chars, unique
+            'username' => 'required|unique:users,username|max:20',
+
+            //Max 30 characters
             'first_name' => 'required|max:30',
             'last_name' => 'required|max:30',
+
+            //Adding rules for password. The explanation of this is shown at the frontend
             'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/|min:8',
             'password_confirmation' => 'required|same:password'
         ];

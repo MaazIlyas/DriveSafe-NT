@@ -1,5 +1,5 @@
 
-<!-- Instructors page -->
+{{-- This page shows the lsit of all the instructors --}}
 
 @extends('layouts.app-master')
 
