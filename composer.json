@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "laravel/drivesafent",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The prototype of drivesafeNT project",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {

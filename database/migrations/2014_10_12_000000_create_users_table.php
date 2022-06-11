@@ -20,6 +20,8 @@ return new class extends Migration
 
             //Adding a unique Index
             $table->string('username')->unique();
+
+            //Adding a unique index on email to 
             $table->string('email')->unique();
 
             
