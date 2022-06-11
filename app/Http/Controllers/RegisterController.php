@@ -28,14 +28,18 @@ class RegisterController extends Controller
      */
     public function register(RegisterRequest $request) 
     {
+        //Validating request
         $data = $request->validated();
             if(!empty($data)) {
+                //By default user is student
                 $data['role'] = 'student';
-                $data['name'] = data_get($data, 'username');
+
+
+                $data['username'] = data_get($data, 'username');
                 $data['salt'] = Str::random(16);
                 $password = $data['password'] . $data['salt'];
                 $data['password'] = bcrypt($password);
-                unset($data['username']);
+                //unset($data['username']);
                 
                 $user = User::create($data);
 

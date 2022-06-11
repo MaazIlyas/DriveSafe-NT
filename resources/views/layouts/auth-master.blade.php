@@ -33,9 +33,9 @@
 <body class="text-center">
     
     <main class="form-signin">
-
+      
         @yield('content')
-        Accidently opened the page? <a href="{{ redirect()->getUrlGenerator()->previous() }}">Return</a>
+        <span class="return-button"><a href="{{ redirect()->getUrlGenerator()->previous() }}">< Return</a> to the previous page</span>
     </main>
     
 

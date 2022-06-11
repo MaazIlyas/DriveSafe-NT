@@ -22,6 +22,22 @@
                 <span class="text-danger text-left">{{ $errors->first('username') }}</span>
             @endif
         </div>
+
+        <div class="form-group form-floating mb-3">
+            <input type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" placeholder="Username" required="required" autofocus>
+            <label for="floatingName">First Name</label>
+            @if ($errors->has('first_name'))
+                <span class="text-danger text-left">{{ $errors->first('first_name') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group form-floating mb-3">
+            <input type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" placeholder="Username" required="required" autofocus>
+            <label for="floatingName">Last Name</label>
+            @if ($errors->has('last_name'))
+                <span class="text-danger text-left">{{ $errors->first('last_name') }}</span>
+            @endif
+        </div>
         
         <div class="form-group form-floating mb-3">
             <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password" required="required">

@@ -25,3 +25,7 @@ body {
 .text-center .password-criteria {
     text-align: left!important;
 }
+
+.form-signin .return-button {
+    text-align: left!important;
+}
