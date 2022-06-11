@@ -19,10 +19,10 @@ class InstructorController extends Controller
         if (Schema::hasTable('Instructors'))
         {
             $instructors = Instructor::paginate(4);
-            return view('list-instructor', ['instructors' => $instructors, 'search_string' => '']);
+            return view('list-instructors', ['instructors' => $instructors, 'search_string' => '']);
         }
         
-        return view('list-instructor', [ 'search_string' => '']);
+        return view('list-instructors', [ 'search_string' => '']);
     }
 
     /**
