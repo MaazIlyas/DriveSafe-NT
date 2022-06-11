@@ -24,6 +24,9 @@ return new class extends Migration
             $table->string('language')->nullable();
             $table->text('bio')->nullable();
             $table->timestamps();
+
+            //Composite index for performing search
+            $table->index(['first_name', 'last_name'], 'full_name');
         });
     }
 

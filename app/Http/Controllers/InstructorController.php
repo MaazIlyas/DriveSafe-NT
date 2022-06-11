@@ -6,6 +6,7 @@ use App\Models\Instructor;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class InstructorController extends Controller
 {
@@ -18,7 +19,14 @@ class InstructorController extends Controller
     {
         if (Schema::hasTable('Instructors'))
         {
-            $instructors = Instructor::paginate(4);
+
+            //caching for an hour (added functionality to delete the cache if a new instructor is added, editted or deleted)
+            // for manual clearing use command: php artisan config:clear
+            $instructors = cache()->remember('instructors-page-'.request('page', 1), 60*60, function() {
+                return Instructor::paginate(4);
+            });
+            //$instructors = Instructor::paginate(4);
+
             return view('list-instructors', ['instructors' => $instructors, 'search_string' => '']);
         }
         
@@ -47,6 +55,7 @@ class InstructorController extends Controller
      */
     public function create()
     {
+        $this->clearInstructorsListCache();
         return view('create');
     }
 
@@ -58,6 +67,7 @@ class InstructorController extends Controller
      */
     public function store(Request $request)
     {
+        $this->clearInstructorsListCache();
         $storeData = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -80,7 +90,6 @@ class InstructorController extends Controller
      */
     public function show($id)
     {
-
         $instructor = Instructor::with('ReviewData')->find($id);
         //dd($instructor);
 
@@ -152,7 +161,7 @@ class InstructorController extends Controller
      */
     public function destroy(Request $request)
     {
-        print_r($request->instructor_delete_id);
+        $this->clearInstructorsListCache();
         $instructor = Instructor::findOrFail($request->instructor_delete_id);
 
         if($instructor)
@@ -163,6 +172,21 @@ class InstructorController extends Controller
         }
         else{
             return redirect(route('instructors.index'))->with('message', 'Instructor has not been deleted');
+        }
+    }
+
+    //TO clear cache for instructors
+    private function clearInstructorsListCache() {
+        //Getting the page count for instructor
+        $pagesCount = ceil(count(Instructor::all())/4);
+        //dd($pagesCount);
+        for($i=1; $i<=$pagesCount; $i++) {
+            $key = 'instructors-page-' . $i;
+            if (Cache::has($key)) {
+                Cache::forget($key);
+            } else {
+                break;
+            }
         }
     }
 }
