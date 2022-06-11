@@ -32,6 +32,12 @@
                                         <li>
                                             <span>Car Type:</span> {{$instructor->car_type}}
                                         </li>
+                                        <li>
+                                            <span>Experience:</span> {{$instructor->exp_in_years}} years
+                                        </li>
+                                        <li>
+                                            <span>Car Type:</span> {{$instructor->license_no}}
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="col">
@@ -131,6 +137,7 @@
                         <div>
                             @foreach($reviews as $review)
                                 <div class="all_rating_list">
+                                    <span>{{ $review->UserData->name }}</span>
                                     <span>{{ date('Y-m-d H:i:s', strtotime($review->updated_at)) }}</span> 
                                     <ul>
                                     @for ($i = 1; $i <= $review->rating; $i++)

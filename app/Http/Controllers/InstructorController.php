@@ -80,23 +80,26 @@ class InstructorController extends Controller
      */
     public function show($id)
     {
+
         $instructor = Instructor::with('ReviewData')->find($id);
+        //dd($instructor);
+
         $avg_rating = 0;
         $reviews = [];
         if(!empty($instructor)) {
             $reviews = data_get($instructor, 'ReviewData', []);
+            //dump($reviews);
             if (!empty($reviews)) {
                 foreach($reviews as $review) {
+                    //$user_data = data_get($review, 'UserData',[]);
+                    //dd($user_data);
                     $current_rating = (int)data_get($review, 'rating', 0);
                     if ($current_rating > 0) {
                         $avg_rating = ($avg_rating + $current_rating);
                     }
                 }
-                if($reviews != [])
-                {
-                    if (count($reviews) > 0) {
-                        $avg_rating = round(($avg_rating/count($reviews)));
-                    }
+                if (count($reviews) > 0) {
+                    $avg_rating = round(($avg_rating/count($reviews)));
                 }
                 
             }

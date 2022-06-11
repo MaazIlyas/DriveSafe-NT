@@ -29,4 +29,6 @@ class Instructor extends Model
     {
         return $this->hasMany('App\Models\Review','instructor_id');
     }
+
+
 }

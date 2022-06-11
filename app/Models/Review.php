@@ -20,4 +20,9 @@ class Review extends Model
         'instructor_id',
         'user_id'
     ];
+
+    public function UserData()
+    {
+        return $this->belongsTo('App\Models\User','user_id');
+    }
 }
