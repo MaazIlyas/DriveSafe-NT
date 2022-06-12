@@ -22,9 +22,4 @@ class School extends Model
         'post_code'
     ];
 
-        //Making relation one to many
-        public function InstructorData()
-        {
-            return $this->hasMany('App\Models\Review','school_id');
-        }
 }

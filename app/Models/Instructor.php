@@ -24,13 +24,19 @@ class Instructor extends Model
         'contact_num',
         'car_type',
         'language',
-        'bio'
-        //'school_id'
+        'bio',
+        'school_id'
     ];
 
     //Making relation one to many
     public function ReviewData()
     {
         return $this->hasMany('App\Models\Review','instructor_id');
+    }
+
+    //Making relation to get data
+    public function SchoolData()
+    {
+        return $this->belongsTo('App\Models\Review','school_id');
     }
 }

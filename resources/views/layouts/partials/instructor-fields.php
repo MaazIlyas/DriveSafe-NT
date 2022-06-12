@@ -29,5 +29,6 @@
     <input type="text" class="form-control" name="language"/>
 </div>
 <div class="form-group mb-2">
+    <label for="language">Bio</label>
     <textarea class="form-control" name="bio" placeholder="Enter instructor's bio"></textarea>
 </div>

@@ -57,7 +57,9 @@ class InstructorController extends Controller
     public function create()
     {
         $this->clearInstructorsListCache();
-        return view('create');
+        $schools = School::all();
+        return view('create', ['schools' => $schools]);
+        //
     }
 
     /**
@@ -73,11 +75,12 @@ class InstructorController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'exp_in_years' => 'nullable|numeric',
-            'license_no' => 'nullable|string|max:255',
+            'license_no' => 'required|string|max:255',
             'contact_num' => 'nullable|string|max:255',
-            'car_type' => 'nullable|string|max:64',
-            'language' => 'nullable|string|max:128',
-            'bio' => 'nullable|string|max:512'
+            'car_type' => 'required|string|max:64',
+            'language' => 'required|string|max:128',
+            'bio' => 'nullable|string|max:512',
+            'school_id'=>'required|numeric',
         ]);
         $instructor = Instructor::create($storeData);
         return redirect(route('instructors.index'))->with('success', 'Instructor has been added!');
@@ -98,7 +101,7 @@ class InstructorController extends Controller
         $reviews = [];
         if(!empty($instructor)) {
             $reviews = data_get($instructor, 'ReviewData', []);
-            $school = School::find($instructor->id);
+            $school = School::find($instructor->school_id);
             //dump($school);
             if (!empty($reviews)) {
                 foreach($reviews as $review) {
@@ -128,7 +131,9 @@ class InstructorController extends Controller
     public function edit($id)
     {
         $instructor = Instructor::findOrFail($id);
-        return view('edit', compact('instructor'));
+        $schools = School::all();
+        $ins_school = School::find($instructor->school_id);
+        return view('edit', compact('instructor', 'schools', 'ins_school'));
     }
 
     /**
@@ -148,7 +153,8 @@ class InstructorController extends Controller
             'contact_num' => 'nullable|string|max:255',
             'car_type' => 'nullable|string|max:64',
             'language' => 'nullable|string|max:128',
-            'bio' => 'nullable|string|max:512'
+            'bio' => 'nullable|string|max:512',
+            'school_id'=>'required|numeric',
         ]);
         
         Instructor::whereId($id)->update($updateData);

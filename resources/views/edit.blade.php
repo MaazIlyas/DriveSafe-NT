@@ -54,6 +54,17 @@
               <label for="bio">Bio</label>
               <textarea class="form-control" name="bio" placeholder="Enter instructor's bio">{{ $instructor->bio }}</textarea>
             </div>
+            <div class="form-group mb-2">
+              <label for="language">Associated School</label>
+              <select name="school_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required>
+              <option value="{{$ins_school->id}}" selected>{{$ins_school->name}}</option>
+              @foreach($schools as $school)
+                @if ($school->id != $ins_school->id)
+                  <option value="{{$school->id}}">{{$school->name}}</option>
+                @endif
+              @endforeach
+              </select>
+          </div>
             <button type="submit" class="btn btn-block btn-danger w-100">Update</button>
         </form>
     </div>

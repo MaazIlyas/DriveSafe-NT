@@ -17,10 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('license_no')->nullable();
+            $table->string('license_no')->unique();
             $table->string('exp_in_years')->nullable();
             $table->string('contact_num')->nullable();
-            $table->string('car_type')->nullable();
+
+            //Not nullable (atleast 1)
+            $table->string('car_type');
             $table->string('language')->nullable();
             $table->text('bio')->nullable();
             $table->unsignedBigInteger('school_id');
