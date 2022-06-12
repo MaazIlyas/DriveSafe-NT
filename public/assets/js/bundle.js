@@ -41,7 +41,7 @@
 
                 setTimeout(function() {
                     $(".alert-hide-class").hide();
-                }, 6000);
+                }, 4000);
 
                 'use strict';
 
