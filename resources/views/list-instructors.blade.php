@@ -27,7 +27,7 @@
             
             @foreach($instructors as $instructor)
                 <div class="col">
-                    <div class="card ">
+                    <div class="card h-100">
                         <div class="card-body">
                             <h4 class="card-title">
                                 {{$instructor->first_name}}  {{$instructor->last_name}} 
@@ -37,7 +37,7 @@
                                 <li class="list-group-item d-flex justify-content-between"><span class="fw-bold">Contact Number:</span> {{$instructor->contact_num}}</li>
                                 <li class="list-group-item d-flex justify-content-between"><span class="fw-bold">License Number:</span> {{$instructor->license_no}}</li>
                                 <li class="list-group-item d-flex justify-content-between"><span class="fw-bold">Car Type:</span> {{$instructor->car_type}}</li>
-                                <li class="list-group-item d-flex justify-content-between"><span class="fw-bold">Language:</span> {{$instructor->language}}</li>
+                                <li class="list-group-item d-flex flex-wrap justify-content-between"><span class="fw-bold">Language:</span> {{$instructor->language}}</li>
                             </ul>
                         </div>
                         
