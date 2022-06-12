@@ -25,6 +25,7 @@ class Instructor extends Model
         'car_type',
         'language',
         'bio'
+        //'school_id'
     ];
 
     //Making relation one to many
@@ -32,6 +33,4 @@ class Instructor extends Model
     {
         return $this->hasMany('App\Models\Review','instructor_id');
     }
-
-
 }

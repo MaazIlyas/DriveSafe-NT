@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Instructor;
+use App\Models\School;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -92,16 +93,17 @@ class InstructorController extends Controller
     {
         $instructor = Instructor::with('ReviewData')->find($id);
         //dd($instructor);
-
+        //dump($instructor);
         $avg_rating = 0;
         $reviews = [];
         if(!empty($instructor)) {
             $reviews = data_get($instructor, 'ReviewData', []);
-            //dump($reviews);
+            $school = School::find($instructor->id);
+            //dump($school);
             if (!empty($reviews)) {
                 foreach($reviews as $review) {
                     //$user_data = data_get($review, 'UserData',[]);
-                    //dd($user_data);
+                    //dd($user_data); //testing
                     $current_rating = (int)data_get($review, 'rating', 0);
                     if ($current_rating > 0) {
                         $avg_rating = ($avg_rating + $current_rating);
@@ -114,7 +116,7 @@ class InstructorController extends Controller
             }
         }
         
-        return view('view-instructor', compact('instructor', 'avg_rating', 'reviews'));
+        return view('view-instructor', compact('instructor', 'avg_rating', 'reviews', 'school'));
     }
 
     /**

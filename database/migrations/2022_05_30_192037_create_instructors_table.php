@@ -23,10 +23,13 @@ return new class extends Migration
             $table->string('car_type')->nullable();
             $table->string('language')->nullable();
             $table->text('bio')->nullable();
+            $table->unsignedBigInteger('school_id');
             $table->timestamps();
 
             //Composite index for performing search
             $table->index(['first_name', 'last_name'], 'full_name');
+
+            $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
         });
     }
 

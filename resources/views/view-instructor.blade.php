@@ -39,6 +39,12 @@
                                         <li>
                                             <span>Car Type:</span> {{$instructor->license_no}}
                                         </li>
+                                        <li>
+                                            <span>School Associated:</span> {{$school->name}}
+                                        </li>
+                                        <li>
+                                            <span>School Area:</span> {{$school->city}}
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="col">
