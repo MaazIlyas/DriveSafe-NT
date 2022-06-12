@@ -60,7 +60,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
+    <!--<script src="{!! url('public/assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>-->
     <script src="https://kit.fontawesome.com/bc4e126ee3.js" crossorigin="anonymous"></script>
     <script src="{!! url('assets/js/bundle.js') !!}" type="text/javascript"></script>
   </body>

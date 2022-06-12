@@ -105,7 +105,7 @@ class InstructorController extends Controller
             //dump($school);
             if (!empty($reviews)) {
                 foreach($reviews as $review) {
-                    //$user_data = data_get($review, 'UserData',[]);
+                    $user_data = data_get($review, 'UserData',[]);
                     //dd($user_data); //testing
                     $current_rating = (int)data_get($review, 'rating', 0);
                     if ($current_rating > 0) {

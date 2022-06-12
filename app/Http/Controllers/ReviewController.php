@@ -41,6 +41,7 @@ class ReviewController extends Controller
             'instructor_id' => 'required|numeric'
         ]);
         $userID = auth()->user()->id;
+        //dump($storeData);
         if (!empty($userID)) {
 
             $message = 'Review has been submitted!';

@@ -82,6 +82,7 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                             <input type="hidden" name="instructor_id" value="{{ $instructor->id }}" />
                             <input type="hidden" id="rating-input" name="rating" value="" />
+                            
                             <div class="add_new-rating">
                                 <h3>Your Rating</h3>
                                 <ul class="review__rating mb-3">
@@ -102,11 +103,17 @@
                                     </li>
                                 </ul>
                             </div>
+                            @if ($errors->has('rating'))
+                                <span class="text-danger text-left">{{ $errors->first('rating') }}</span>
+                            @endif
                             <div>
-                
+
                                 <h3>Your Comment</h3>
                                 <div class="review__comment">
                                     <textarea class="form-control" name="review" id="reviewComment" placeholder="What is your feedback?"></textarea>
+                                    @if ($errors->has('review'))
+                                        <span class="text-danger text-left">{{ $errors->first('review') }}</span><br>
+                                    @endif
                                     @guest
                                     <span>Please login to submit your review.</span>
                                     @endguest
@@ -144,7 +151,7 @@
                         <div>
                             @foreach($reviews as $review)
                                 <div class="all_rating_list">
-                                    <span>{{ $review->UserData->name }}</span>
+                                    <span>{{ $review->UserData->first_name }} {{ $review->UserData->last_name }}</span>
                                     <span>{{ date('Y-m-d H:i:s', strtotime($review->updated_at)) }}</span> 
                                     <ul>
                                     @for ($i = 1; $i <= $review->rating; $i++)
