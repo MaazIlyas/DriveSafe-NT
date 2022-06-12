@@ -1,4 +1,4 @@
 --
 -- Delete database
 --
-DROP DATABASE IF EXISTS DriveSafe;
+DROP DATABASE IF EXISTS DriveSafeNT;
