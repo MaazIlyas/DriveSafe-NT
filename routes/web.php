@@ -45,13 +45,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Register Routes
          */
         Route::get('/register', 'RegisterController@show')->name('register.show');
-        Route::post('/register', 'RegisterController@register')->name('register.perform');
+        Route::post('/register', 'RegisterController@register')->middleware('lower.email')->name('register.perform');
 
         /**
          * Login Routes
          */
         Route::get('/login', 'LoginController@show')->name('login.show');
-        Route::post('/login', 'LoginController@login')->name('login.perform');
+        Route::post('/login', 'LoginController@login')->middleware('lower.email')->name('login.perform');
 
         /**
          * logout route while logged in
