@@ -1,11 +1,4 @@
 /* Code to create database defintions (using DDL). */
-
---
--- Creating database
---
-CREATE DATABASE IF NOT EXISTS DriveSafeNT;
-
-use DriveSafeNT;
 /* ------------------------------------------------------------------------------ */
 --
 -- Dropping tables
