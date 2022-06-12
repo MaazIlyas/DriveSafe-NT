@@ -5737,7 +5737,7 @@ function searchDrivingSchool() {
     //Looping through cards
     for (let i = 0; i < cardsArr.length; i++) {
         let title = cardsArr[i].querySelector(".card-body .card-title a.stretched-link");
-        console.log(title);
+        //console.log(title);
 
         if (title.innerText.toUpperCase().indexOf(input) > -1) {
             cardsArr[i].style.display = "";

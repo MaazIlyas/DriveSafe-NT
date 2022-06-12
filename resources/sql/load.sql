@@ -1,5 +1,7 @@
 /* Queries to load test the database tables */
 
+use DriveSafeNT;
+
 /* users table Data */
 -- Note: This data will only work once as it contains email and username which has UNIQUE Index on it.
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `email_verified_at`, `password`, `salt`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES

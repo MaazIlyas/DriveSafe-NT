@@ -1,4 +1,6 @@
 /* Performing Delete Operations */
+
+use DriveSafeNT;
 /* DELETING and testing the record of user with username testuser2 */
 -- SELECT * FROM USERS WHERE username = 'testuser2';
 DELETE FROM `users` WHERE username = 'testuser2';

@@ -1,3 +1,5 @@
+use DriveSafeNT;
+
 /* Updating and testing the record of user with username testuser1 */
 UPDATE users SET username = 'testuser99' WHERE username = 'testuser1';
 SELECT * FROM USERS WHERE username = 'testuser1';
@@ -15,4 +17,4 @@ SELECT * FROM schools WHERE name = 'School XYZ';
 SELECT * FROM schools WHERE name ='School JKL';
 
 UPDATE reviews SET rating = 2 where id = 1;
-SELECT * FROM reviews WHERE name = 
+SELECT * FROM reviews WHERE id = 2

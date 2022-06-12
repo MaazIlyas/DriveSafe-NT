@@ -1,6 +1,9 @@
 /* Code to create database defintions (using DDL). */
 /* ------------------------------------------------------------------------------ */
 --
+
+use DriveSafeNT;
+
 -- Dropping tables
 DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS instructors;

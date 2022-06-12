@@ -28,15 +28,17 @@
       }
     </style>
 
+    @include('layouts.partials.paths')
+
     <!-- Custom styles for this template -->
-    <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
-    <link href="{!! URL::asset('assets/css/global.css') !!}" rel="stylesheet">
-    <link href="{!! URL::asset('assets/css/footer.css') !!}" rel="stylesheet">
-    <link href="{!! URL::asset('assets/css/main-nav.css') !!}" rel="stylesheet">
-    <link href="{!! URL::asset('assets/css/card.css') !!}" rel="stylesheet">
-    <link href="{!! URL::asset('assets/css/banner.css') !!}" rel="stylesheet">
-    <link href="{!! URL::asset('assets/css/breadcrumb.css') !!}" rel="stylesheet">
-    <link href="{!! URL::asset('assets/css/pagination.css') !!}" rel="stylesheet">
+    <link href="{!! url(CSS.'/app.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset(CSS.'/global.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset(CSS.'/footer.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset(CSS.'/main-nav.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset(CSS.'/card.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset(CSS.'/banner.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset(CSS.'/breadcrumb.css') !!}" rel="stylesheet">
+    <link href="{!! URL::asset(CSS.'/pagination.css') !!}" rel="stylesheet">
   </head>
   <body>
     <div id="wrapper">
@@ -62,6 +64,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--<script src="{!! url('public/assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>-->
     <script src="https://kit.fontawesome.com/bc4e126ee3.js" crossorigin="anonymous"></script>
-    <script src="{!! url('assets/js/bundle.js') !!}" type="text/javascript"></script>
+    <script src="{!! url(JS.'bundle.js') !!}" type="text/javascript"></script>
   </body>
 </html>
