@@ -51,6 +51,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Login Routes
          */
         Route::get('/login', 'LoginController@show')->name('login.show');
+
+        //First lower the email then go to controller
         Route::post('/login', 'LoginController@login')->middleware('lower.email')->name('login.perform');
 
         /**
