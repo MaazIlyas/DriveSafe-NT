@@ -8,14 +8,14 @@ class Authenticate extends Middleware
 {
     /**
      * Get the path the user should be redirected to when they are not authenticated.
-     *
+     * e.g. when the user tries to logout when he is not logged in, it will take him to log in.
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return route('login');
+            return route('login.show');
         }
     }
 }
