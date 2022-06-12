@@ -83,7 +83,7 @@ class InstructorSeeder extends Seeder
                 'bio' => $description, 'school_id' => '1', 'created_at' => now(), 'updated_at' => now()
             ],
             [
-                'first_name' => 'Sami', 'last_name' => 'Azam', 'license_no' => 'AB1529032', 
+                'first_name' => 'Sami', 'last_name' => 'Azam', 'license_no' => 'AB152922', 
                 'exp_in_years' => '22', 'contact_num' => '123125343', 'car_type' => 'Automatic',
                 'language' => 'English, Bengali, Japanese', 
                 'bio' => $description, 'school_id' => '2', 'created_at' => now(), 'updated_at' => now()
