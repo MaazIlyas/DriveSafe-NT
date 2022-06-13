@@ -30,6 +30,10 @@ class UserSeeder extends Seeder
             ],
             [
                 'first_name' => 'Marker', 'last_name' => 'DDWA','username' => 'marker', 'email' => 'marker@cdu.com', 'password' => '$2y$10$DPjgDOT87DDVGSyOpUUycuJJy1MXa/ZPCHV8vXD8sBZGLAGUcGgou', 
+                'salt' => 'ZYDku9udNt3es1ro', 'role' => 'admin', 'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'first_name' => 'Student', 'last_name' => 'View','username' => 'student', 'email' => 'student@cdu.com', 'password' => '$2y$10$DPjgDOT87DDVGSyOpUUycuJJy1MXa/ZPCHV8vXD8sBZGLAGUcGgou', 
                 'salt' => 'ZYDku9udNt3es1ro', 'role' => 'student', 'created_at' => now(), 'updated_at' => now()
             ]
         ];
