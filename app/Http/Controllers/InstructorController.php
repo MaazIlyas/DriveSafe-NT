@@ -25,7 +25,7 @@ class InstructorController extends Controller
 
             //caching for an hour (added functionality to delete the cache if a new instructor is added, editted or deleted)
             // for manual clearing use command: php artisan config:clear
-            $instructors = cache()->remember('instructors-page-'.request('page', 1), 60*60*24, function() {
+            $instructors = cache()->remember('instructors-page-'.request('page', 1), 60*60, function() {
                 return Instructor::paginate(4);
             });
 
@@ -71,7 +71,6 @@ class InstructorController extends Controller
      */
     public function store(Request $request)
     {
-        $this->clearInstructorsListCache();
         $storeData = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -84,6 +83,7 @@ class InstructorController extends Controller
             'school_id'=>'required|numeric',
         ]);
         $instructor = Instructor::create($storeData);
+        $this->clearInstructorsListCache();
         return redirect(route('instructors.index'))->with('success', 'Instructor has been added!');
     }
 
@@ -134,6 +134,7 @@ class InstructorController extends Controller
         $instructor = Instructor::findOrFail($id);
         $schools = School::all();
         $ins_school = School::find($instructor->school_id);
+        $this->clearInstructorsListCache();
         return view('edit', compact('instructor', 'schools', 'ins_school'));
     }
 
@@ -157,7 +158,7 @@ class InstructorController extends Controller
             'bio' => 'nullable|string|max:512',
             'school_id'=>'required|numeric',
         ]);
-        
+        $this->clearInstructorsListCache();
         Instructor::whereId($id)->update($updateData);
         return redirect(route('instructors.index'))->with('success', 'Instructor has been updated');
     }
