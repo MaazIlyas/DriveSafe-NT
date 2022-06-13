@@ -47,7 +47,7 @@ class InstructorController extends Controller
             $query->where(DB::raw("CONCAT(first_name, last_name)"), 'like', '%' . str_replace(" ", "", $search_string) . '%');
         })->paginate(4);
         
-        return view('index', ['instructors' => $instructors, 'search_string' => $search_string]);
+        return view('list-instructors', ['instructors' => $instructors, 'search_string' => $search_string]);
     }
 
     /**
