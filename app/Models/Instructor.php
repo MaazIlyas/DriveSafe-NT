@@ -39,4 +39,14 @@ class Instructor extends Model
     {
         return $this->belongsTo('App\Models\Review','school_id');
     }
+
+    public function ShowWithPagination($count)
+    {
+        //caching for an hour (added functionality to delete the cache if a new instructor is added, editted or deleted)
+        // for manual clearing use command: php artisan config:clear
+        return cache()->remember('instructors-page-'.request('page', 1), 60*60*24, function() {
+            return Instructor::paginate($count);
+        });
+        
+    }
 }

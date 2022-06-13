@@ -37,10 +37,11 @@ class RegisterController extends Controller
 
                 $data['username'] = data_get($data, 'username');
                 $data['salt'] = Str::random(16);
+
+                //--> Concatenating salt and password and then hashing them
                 $password = $data['password'] . $data['salt'];
                 $data['password'] = bcrypt($password);
                 //unset($data['username']);
-                
                 $user = User::create($data);
 
                 auth()->login($user);

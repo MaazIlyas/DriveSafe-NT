@@ -34,6 +34,8 @@ class LoginController extends Controller
         // data_get function contains 3 params, 1st one is object or array, 
         // 2nd one is key which we want to get and third one is default value if data not exist.
         if(!empty($user_found)) {
+
+            //Getting the salt, concatenating it with password and checking it by hashing.
             $salt = data_get($user_found, 'salt', '');
             $password = $credentials['password'] . $salt;
 
@@ -41,13 +43,6 @@ class LoginController extends Controller
                 return redirect()->to('login')->withErrors(trans('auth.failed'));
             }
         }
-
-        // if(!Auth::validate($credentials)):
-        //     return redirect()->to('login')
-        //         ->withErrors(trans('auth.failed'));
-        // endif;
-
-        // $user = Auth::getProvider()->retrieveByCredentials($credentials);
         
         Auth::login($user_found);
 

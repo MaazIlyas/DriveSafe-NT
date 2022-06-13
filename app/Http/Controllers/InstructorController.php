@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Instructor;
 use App\Models\School;
+use App\Models\User;
+use App\Models\Review;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,10 +25,9 @@ class InstructorController extends Controller
 
             //caching for an hour (added functionality to delete the cache if a new instructor is added, editted or deleted)
             // for manual clearing use command: php artisan config:clear
-            $instructors = cache()->remember('instructors-page-'.request('page', 1), 60*60, function() {
+            $instructors = cache()->remember('instructors-page-'.request('page', 1), 60*60*24, function() {
                 return Instructor::paginate(4);
             });
-            //$instructors = Instructor::paginate(4);
 
             return view('list-instructors', ['instructors' => $instructors, 'search_string' => '']);
         }
